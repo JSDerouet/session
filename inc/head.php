@@ -34,20 +34,27 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Chocolates chips</a></li>
-                    <li><a href="#">Nuts</a></li>
-                    <li><a href="#">Gluten full</a></li>
                     <li>
                         <a href="/cart.php" class="btn btn-warning navbar-btn">
                             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                             Cart
                         </a>
                     </li>
+                    <?php if (empty($_SESSION['loginname'])) {?>
+                    <li><a href="../login.php">Login</a></li>
+                    <?php } 
+                    if (!empty($_SESSION['loginname'])) { ?>
+                    <li><a href="../logout.php">Logout</a></li>
+                    <?php } ?>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
     <div class="container-fluid text-right">
-        <h1>Hello <?php echo $_SESSION['loginname'] ?> Wilder !</h1>
+        <h1>Hello <?php if (empty($_SESSION['loginname'])){  
+            echo "wilder !";
+        } else {
+            echo $_SESSION['loginname'] . " !";
+        } ?></h1>
     </div>
 </header>

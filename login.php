@@ -1,9 +1,5 @@
 <?php
  session_start();
- if($_SERVER['REQUEST_METHOD']==='POST') {
-    $_SESSION['loginname'] = $_POST['loginname'];
-    header('Location:index.php');
-}
 ?>
 <?php require 'inc/head.php'; ?>
 <div class="container" style="margin-top:40px">
@@ -14,7 +10,7 @@
                     <strong> Sign in to continue</strong>
                 </div>
                 <div class="panel-body">
-                    <form role="form" action="index.php" method="POST">
+                    <form role="form" action="form.php" method="POST">
                         <fieldset>
                             <div class="row">
                                 <div class="center-block">
@@ -43,7 +39,7 @@
                     </form>
                 </div>
                 <div class="panel-footer ">
-                    Don't have an account ? <a href="#" onClick="">Too bad !</a>
+                    Don't have an account ? <a href="login.php" onClick="login">Here !</a>
                 </div>
             </div>
         </div>
